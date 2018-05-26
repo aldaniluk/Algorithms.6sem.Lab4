@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Logic
 {
-    public static class HuffmanEncriptionService
+    public static class HuffmanEncryptionService
     {
         public static string Encrypt(string source)
         {
@@ -144,7 +144,7 @@ namespace Logic
             string[] charEncryptCharPairs = encryptingTableString.Split('%');
             foreach (string pair in charEncryptCharPairs)
             {
-                int dashIndex = pair.IndexOf("$", StringComparison.Ordinal);
+                int dashIndex = pair.IndexOf("$");
                 char key = Convert.ToChar(pair.Substring(0, dashIndex));
                 string value = pair.Substring(dashIndex + 1, pair.Length - dashIndex - 1);
 
