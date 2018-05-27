@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -135,6 +136,19 @@ namespace Logic
             Dictionary<string, char> encryptingTable = RestoreEncryptingTable(encryptingTableString);
 
             return DecryptInternal(sourceString.ToCharArray(), encryptingTable);
+        }
+
+        private static string Transform(string bytesString)
+        {
+            string bitsString = "";
+            char[] chars = bytesString.ToCharArray();
+            var bitArray = new BitArray(Encoding.UTF8.GetBytes(chars));
+            foreach(var bit in bitArray)
+            {
+                bitsString += (bool)bit ? "1" : "0";
+            }
+
+            return bitsString;
         }
 
         private static Dictionary<string, char> RestoreEncryptingTable(string encryptingTableString)
