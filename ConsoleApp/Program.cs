@@ -33,7 +33,6 @@ namespace ConsoleApp
             //    writer.Write(decrypted);
             //}
 
-
             string encrypted = HuffmanEncryptionService.Encrypt(initialString);
             string decrypted = HuffmanEncryptionService.Decrypt(encrypted);
 
